@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <style>
+    #main {
+        outline: 1px solid black;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="main" height="500" width="600"></canvas>
+    <script>
+    var canvas = document.getElementById('main');
+    var context = canvas.getContext('2d');
+
+    var map = [
+        [6, 2, 2, 2, 7],
+        [5, 0, 0, 0, 3],
+        [5, 0, 0, 0, 3],
+        [5, 0, 0, 0, 3],
+        [5, 0, 0, 0, 3],
+        [5, 0, 0, 0, 3],
+        [8, 4, 4, 4, 9]
+    ];
+
+    var tiles = [
+    './images/topdown/metalTileConnectCenter.png',
+    './images/topdown/metalTileConnectCenter.png',
+    './images/topdown/metalTileConnectSideTop.png',
+    './images/topdown/metalTileConnectSideRight.png',
+    './images/topdown/metalTileConnectSideDown.png',
+    './images/topdown/metalTileConnectSideLeft.png',
+    './images/topdown/metalTileConnectCornerTL.png',
+    './images/topdown/metalTileConnectCornerTR.png',
+    './images/topdown/metalTileConnectCornerDL.png',
+    './images/topdown/metalTileConnectCornerDR.png'
+    ];
+
+    var posX = 0;
+    var posY = 0;
+
+    // Using two for loops we run through each of the array rows stored and their element values.
+    for (var i = 0; i < map.length; i++) {
+        for (var j = 0; j < map[i].length; j++) {
+            var tile = new Image();
+            tile.src = tiles[map[i][j]];
+            // Check if the value is a 0 or 1, represeting a graphic should be drawn.
+            context.drawImage(tile, posX, posY, 64, 64);
+            posX += 64;
+        }
+        posY += 64;
+        posX = 0;
+    }
+    posY = 0;
+
+    var char = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 1],
+        [0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0]
+    ];
+
+    for (var i = 0; i < char.length; i++) {
+        for (var j = 0; j < char[i].length; j++) {
+            if (char[i][j]) {
+                var char = new Image();
+                char.src = './images/Top View/robot_3Dred.png';
+                // Check if the value is a 0 or 1, represeting a graphic should be drawn.
+                context.drawImage(char, posX, posY, 64, 64);
+            }
+            posX += 64;
+        }
+        posY += 64;
+        posX = 0;
+    }
+    </script>
+</body>
+
+</html>﻿

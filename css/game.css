@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	outline: none;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-user-select: none;
+    overflow: hidden;
+    background: #2c2d44;
+}
+
+
+/********************/
+/*     TOOLBAR
+/********************/
+
+.toolbar {
+    background: rgba(63, 50, 81, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 70px;
+    left: -70px;
+}
+
+.toolbar img {
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+}
+
+.toolbar .thumb:nth-of-type(1) {
+    padding: 5px 0;
+}
+
+.toolbar .thumb:not(:nth-of-type(1)) {
+    height: calc((100% - 70px) / 6);
+}
+
+.toolbar-open {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    z-index: 2;
+}
+
+.toolbar-open span,
+.infobar-open span {
+    height: 100%;
+    width: 40px;
+    color: #FFF;
+    display: inline-block;
+    font-size: 40px;
+    line-height: 100vh;
+    text-align: center;
+}
+
+.toolbar-open span {
+    border-radius: 0 50% 50% 0;
+}
+
+.infobar-open span {
+    border-radius: 50% 0 0 50%;
+}
+
+.toolbar-open span:hover {
+    background: rgba(0, 32, 37, 0.4);
+}
+
+.toolbar-open span:active,
+.infobar-open span:active {
+    border-radius: 0;
+}
+
+.toolbar-open span.active {
+    background: rgba(0, 32, 37, 0.4);
+}
+.infobar-open span.active {
+    background: rgba(63, 50, 81, 0.5);
+}
+
+/***********************
+INFOBAR
+***********************/
+
+.infobar {
+    position: fixed;
+    background: rgba(0, 32, 37, 0.4);
+    height: 100%;
+    width: 350px;
+    right: -350px;
+}
+
+.infobar-open {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    z-index: 2;
+}
+
+.infobar-open span:hover {
+    background: rgba(63, 50, 81, 0.4);
+}
+
+/********************/
+/*    STATUSBAR
+/********************/
+
+.statusbar {
+    position: fixed;
+    top: 0;
+    left: 40px;
+    width: calc(100% - 40px - 40px);
+    height: 100px;
+    background: url("../images/");
+}
